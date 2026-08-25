@@ -34,14 +34,17 @@ for each row
 begin
 
 insert into log_eventos (entidade, acao, descricao)
-values ('produto', 'cadastro', new.nome)
+values ('produto', 'cadastro', new.nome);
 
-end \\
+end //
 
 delimiter ;
 
 insert into produtos (nome, preco, estoque)
 values ("ovo centenário", 50.00, 20);
+
+insert into produtos (nome, preco, estoque)
+values ("escamoles", 200.00, 10);
 
 -- atividade B) --
 
@@ -56,12 +59,15 @@ begin
 insert into log_eventos (entidade, acao, descricao)
 values ('cliente', 'cadastro', concat("nome:",new.nome, "email:", new.email));
 
-end ;
+end //
 
-delimiter \\
+delimiter ;
 
 insert into clientes (nome, email)
 values ("enzo", "emailenzo@gmail.com");
+
+insert into clientes (nome, email)
+values ("luguioslavia", "luguioslavia@gmail.com");
 
 -- atividade C) --
 
@@ -82,6 +88,8 @@ delimiter ;
 
 delete from produtos
 where id = 1;
+
+-- atividade D) --
 
 delimiter //
 
